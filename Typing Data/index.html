@@ -1,0 +1,199 @@
+<!-- In this file we will create a simple typing test website taken from youtube -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*
+		{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.mainDiv{
+			width: 100%;
+			height: 100vh;
+			position: relative;
+			background-color: #3498db;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.centerDiv
+		{
+			text-align: center;
+		}
+
+		h1{
+			text-align: center;
+			margin-bottom: 30px;
+			color: #ecf0f1;text-shadow: 1px 2px 3px #2980b9;
+			font-size: 2.1rem;
+		}
+
+		textarea{
+			background-color: #444;
+			box-shadow: 0 0 1px rgba(0,0,0,0.5);
+			border-radius: 10px 10px 0 0;
+			border: 20px solid #34495e;
+			color: white;
+			font-size: 1.3rem;
+			outline: none;
+		}
+
+		.mainbtn{
+			padding: 10px 20px;
+			border-radius: 20px;
+			border: 5px solid #2980b9;
+			background: #ecf0f1;
+			font-size: 1rem;
+			width: 114px;
+			position: absolute;
+			left: 44vw;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- This is the topmost div -->
+	<div class="mainDiv">
+
+		<div class="centerDiv">
+
+			<h1>Welcome to Typing Test</h1><br>
+
+			<h2 id="msg"> <!-- All the things that you have to write are displayed here and your result too --> </h2>
+
+			<!-- All the things that you had written will be on the text area  -->
+			<textarea name="" id="mywords" cols="100" rows="10" placeholder="Remember, Be Nice"></textarea><br>
+
+			<!-- Start and done button are here -->
+			<div class="mainbtn" id="btn">
+				Start
+			</div>
+
+		</div>
+
+	</div>
+
+	<script>
+		
+		// Creating of array from which one of thsi will be set and you have to write one of them
+		const setOfWords = ["In 1848, Frederich Sorrioeu, created a series of four print, visualising his dream of world made up of social and democratic reoublic", "In his first print he showed the people of Europe and America, marching in a long train and offering homage to the statue of Liberty.","In His Utopian Vision, world was divided into united nation and the people all over the world was "];
+
+		// Getting all the elemements
+		const msg = document.getElementById('msg');
+		const typeWords = document.getElementById('mywords');
+		const btn = document.getElementById('btn');
+
+		// Creating variables to calculate the time taken to write the text
+		let startTime, endTime;
+
+		// Start the game!!!
+		const playGame = () =>{
+
+			// Creating of random numbers as we want the text in the array should be random
+			// Math.random gives us the random number between the 0 to 1, we will multiply it and make it into integer
+			let randomNumber = Math.floor(Math.random()*setOfWords.length)
+
+			// Now I want to show the message to the user what he had to write\
+			msg.innerText = setOfWords[randomNumber]
+
+			// Now we want to get the time in which user had started and finished writing
+	  	let date = new Date();
+	  	startTime = date.getTime();
+	  	btn.innerText = 'Done';
+		}
+
+		// This function will end the game
+		const endPlay = () =>{
+
+			// Getting the end time when the user had stopped writing
+			let date = new Date();
+	  	endTime = date.getTime();
+
+	  	// We will get the total time in the second.milisenconds afyer dividing it by 1000
+	  	let totalTime = ((endTime-startTime)/1000);
+
+	  	// Now we want the total things that the user had write
+	  	let totalStr = typeWords.value;
+
+	  	// And now we wamt the total no of words by a wordCounter function
+	  	let wordCount = wordCounter(totalStr);
+
+	  	// This will give us the speed of the user word count divide by total time and multiplying it by 60 as 1 minute has 60 seconds and round function will give us the exact time of it
+	  	let speed = Math.round(wordCount/totalTime)*60;
+
+	  	// Displaying the final message
+	  	let finalMsg = "You typed total at " + speed + " words per minutes "; 
+
+	  	// Now we want to get the number of error words
+	  	finalMsg += compareWords(msg.innerText,  totalStr);
+
+	  	msg.innerText = finalMsg;
+
+		}
+
+		// Creatnig a function that will take two arrays and return nu. of different words from them
+		function compareWords(str1, str2) {
+			let words1 = str1.split(" ");	
+			let words2 = str2.split(" ");
+			let cnt = 0;
+
+			// forEach method gives takes all the elements inside the array one bu one and this function will run for the total length of the array
+			// It takes the first argument as a all things insdude the array and their index
+			words1.forEach((item, index) => {
+
+				// If the first element of an array is equal to the first element of what we have write then increase the cnt, and if one letter is wrong then it will not be count
+			  if (item == words2[index]) {
+			  	cnt++;	
+			  }
+			})
+
+			// Count the number of error words
+			let errorWords = (words1.length-cnt);
+
+			// Returning the string message that we have to show  in the message div
+			return (cnt + " Correct Out of " + words1.length + " words and the total number of error are " + errorWords + " .")
+		}
+
+		// this function will count the total number of the words in a string
+		function wordCounter(str) {
+
+			// This function will split the string by the gap between them and will count the total words
+			let response  = str.split(" ").length;
+
+			console.log(response)
+			return response;
+		}
+
+		// When the user clicks the button then fire this
+		btn.addEventListener('click' ,(e) => {
+			// If the button has start in it that means the user wants to start typing
+		  if (btn.innerText=='Start') {
+		  	// This means that enable the text area
+		  	typeWords.disabled = false;
+
+		  	playGame();
+		  }
+
+		  // If the user has finished the writing then do this
+		  else if (btn.innerText=='Done'){
+		  	 typeWords.disabled = true;
+		  	 btn.innerText = 'Start';
+
+		  	 endPlay();
+		  }
+		}); 
+
+
+	</script>
+
+</body>
+</html>

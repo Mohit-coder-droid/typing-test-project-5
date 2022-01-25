@@ -1,0 +1,441 @@
+/*Color to be included in click #74ff3b, rgb(98,37,230) */
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+.main{
+  max-width: 1007px;
+  height: 279vh;
+  overflow-x: hidden;
+  display: inline-block;
+
+}
+
+/*Styling of header*/
+
+.header{
+	width: 100vw;
+	height: 100vh;
+	background-image: linear-gradient(45deg, black, transparent), url('images/header image.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+/*Styling of navbar*/
+.navbar_a{
+	float: left;
+	color: white;
+	text-decoration: none;
+	position: absolute;
+}
+
+.navbar{
+	width: 100vw;
+	background-color: black;
+	position: fixed;
+	z-index: 1000;
+}
+
+.navbar li{
+	display: inline-block;
+	cursor: pointer;
+}
+
+.navbar ul{
+	height: 47px;
+	display: flex;
+	padding: 13px;
+	font-size: 1.2rem;
+}
+
+.navbar li:nth-child(2){
+	margin-left: 43vw;
+}
+
+.navbar li:nth-child(1){
+	font-size: 1.3rem;
+	background-color: rgb(0,30,23)
+}
+
+.navbar li:nth-child(3){
+	margin-left: 12vw;
+}
+
+.navbar li:nth-child(4){
+	margin-left: 12vw;
+}
+
+.navbar a:hover{
+	color: grey;
+}
+
+/*Styling of hamburger*/
+.nav_burger{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 8px;
+}
+
+.nav_line{
+	width: 33px;
+	background-color: white;
+	height: 4px;
+	margin: 5px 3px;
+}
+
+/*Styling of the navbar finishes here*/
+
+/*Stling of the start header heading starts from here*/
+
+.header_heading{
+	font-family: 'Source Sans Pro', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+	letter-spacing: 3px;
+	text-shadow: 2px 1px 5px black;
+	text-transform: uppercase;
+	position: absolute;
+	color: white;
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	height: 68vh;
+	position: relative;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.get_started{
+  width: 208px;
+  height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 14px;
+	border: 2px solid rgb(98,37,230);
+	position: absolute;
+	cursor: pointer;
+}
+
+.get_started:hover{
+	background-color: rgb(98,37,230);
+}
+
+.header_heading h1{
+	font-size: 6.6vw;
+}
+
+.header_heading a{
+	color: white;
+	position: absolute;
+  width: 208px;
+  bottom: 15%;
+}
+
+.header_heading{
+	font-size: 2.3vh;
+}
+
+/*Styling of the header ends from here*/
+
+
+/*Styling of the test section start from here*/
+.test{
+	width: 100vw;
+	height: 87vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: tomato;
+	background-image:url('images/image 2.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	overflow-x: hidden;
+	position: relative;
+}
+
+#test_header{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 3.1rem;
+	position: absolute;
+	z-index: 3;
+	top: 105vh;
+	color: white;
+	font-weight: 700; letter-spacing: 3px;
+  text-shadow: 2px 1px 5px black;
+}
+
+/*Styling of the div that will show the things to write*/
+.written{
+	width: 75vw;
+	height: 34vh;
+	opacity: 0.4;
+	background-color: white;
+	position: absolute;
+	top: 6vh;
+	color: black;
+	font-size: 1.3rem;	
+	overflow-y: auto;
+	overflow-x: hidden;
+	outline: none;
+	padding: 5px;
+	z-index: 20;
+}
+
+/*Styling of an inpug for writing of the test*/
+.write_input{
+	position: absolute;
+	top: 40vh;
+	z-index: 100;
+}
+
+.write_input input{
+	width: 0vw;
+	height: 4vh;
+	outline: none;
+	border: none;
+	top :0;
+}
+
+/*Styling the test message box*/
+.test_msg
+{
+	z-index: 20;
+	position: absolute;
+	top: 1vh;
+	background-color: rgb(29,233,182);
+	width: 42vw;
+	height: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+	display: none;
+}
+
+/*Styling the test_start button*/
+.test_start{
+	z-index: 1;
+	background-color: rgb(0,123,255);
+	width: 7vw;
+	height: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	position: absolute;
+	top: 6vh;
+	cursor: pointer;
+	right: 5.5%;
+}
+
+/*Styling of the stopwatch*/
+.stop_watch{
+	z-index: 20;
+	position: absolute;
+	top: 6vh;
+	left: 3vw;
+	background-color: grey;
+	border: 3px solid red;
+	color: white;
+	width: 81px;
+	height: 81px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	opacity: 0.8;
+	/*display: none;*/	
+}
+
+/*Styling the about test section*/
+.about_test{
+	position: absolute;
+	z-index: 20;
+	color: black;
+	font-family: sans-serif;
+	background-image: linear-gradient(88deg, rgb(228,225,59,0.89), rgb(0,225,0,0.67));
+	top: 22vh;
+	width: 124px;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	height: 65px;
+	transform: translateX(-445px);
+	animation-name: about_test_move;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-duration: linear;
+}
+
+/*Creating of animation*/
+@keyframes about_test_move{
+	0% {transform: translateX(-575px);}
+	100% {transform: translateX(-445px);}
+}
+
+/*Styling the keyboar*/
+.keyboard{
+	width: 94vw;
+	height: 40vh;
+	background-color: black; 
+	opacity: 0.7;
+	position: absolute;
+	top: 47vh;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.alphabet{
+	width: 8vw;
+	background-color: red;
+	margin-left: 2%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5vh;
+	background-color: rgb(0,0,196);
+	transition: background-color 0.1s ease-in;
+	margin-top: -7vh;
+}
+
+/*Styling of row1*/
+.row1{
+	position: absolute;
+	width: 92vw;
+	/*background-color: grey;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 2vh;
+	height: 11vh;
+}
+
+/*Styling of row2*/
+.row2{
+	position: absolute;
+	width: 81vw;
+	/*background-color: yellow;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 13vh;
+	height: 10vh;
+}
+
+/*Styling of row3*/
+.row3{
+	position: absolute;
+	top: 23vh;
+	width: 64vw;
+	/*background-color: green;*/
+	height: 7vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 11vh;
+}
+
+/*Styling of row4*/
+.row4{
+	background-color: rgb(0,0,196);
+	width: 31vw;
+	height: 6vh;
+	position: absolute;
+	top: 32vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+}
+
+.showing{
+	position: absolute;
+	width: 75vw;
+	height: 34vh;
+	opacity: 0.6;
+	position: absolute;
+	top: 6vh;
+	color: black;
+	font-size: 1.3rem;	
+	overflow-y: auto;
+	overflow-x: hidden;
+	outline: none;
+	padding: 5px;
+	background-color: yellow;
+}
+
+/*Designing of statistics section*/
+.statistics{
+	width: 100vw;
+	height: 92vh;
+	/*background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 50%,  rgba(0,0,0,0.5) 50%) ,url('images/statistics.jpg');*/
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+#statistics_header{
+	cursor: default;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	color: rgb(98,37,230);
+	position: absolute;
+	top: 0vh;
+	letter-spacing: 3px;
+	font-size: 3.1rem;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+
+
+.statistics_sub{
+  width: 99vw;
+  height: 367px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.statistics_p{
+  width: 338px;
+  height: 320px;
+  margin-left: 7px;
+}
+
+.statistics_sorry{
+    height: 66px;
+    margin-top: 115px;
+    margin-left: 82px;
+}
+
+.statistics_img{
+	background-image: url('images/child.png');
+	background-size: cover;
+}
+
+
+/*Appyling media query to make the website responsive*/
+@media screen and (min-width: 572px){
+	
+}
